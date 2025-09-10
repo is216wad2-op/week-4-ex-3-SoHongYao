@@ -8,7 +8,8 @@
       <p>Get it done today</p>
       
         <!-- add HTML code here -->
-
+      <input id="userinput" type="text" placeholder="Enter Items">
+      <button id="enter" onclick="addListAfterClick()">Enter</button>
       <ul>
          <li>Notebook</li>
          <li>Jello</li>
@@ -21,7 +22,19 @@
       <script>
       
         // add code here
-
+         function addListAfterClick(){
+            var ul = document.getElementsByTagName("ul")[0];
+            var li = document.createElement("li");
+            var input = document.getElementById("userinput");
+            //add new item only if the user has entered something
+            if (input.value.length > 0){
+               var textNode = document.createTextNode(input.value); //eg. "Candy"
+               li.appendChild(textNode); // <li>Cnady</li>
+               ul.appendChild(li); // add <li>Candy</li> to the ul element
+               // clear the input box after adding the item
+               input.value = "";
+            }
+         }
       </script>
  
    </body>
